@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607010829583,
+  "iteration": 1607024973399,
   "links": [],
   "panels": [
     {
@@ -186,7 +186,7 @@
         {
           "$$hashKey": "object:2136",
           "decimals": null,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -423,7 +423,7 @@
         {
           "$$hashKey": "object:1573",
           "decimals": 0,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -608,7 +608,8 @@
       "yaxes": [
         {
           "$$hashKey": "object:2474",
-          "format": "short",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -760,7 +761,7 @@
         {
           "$$hashKey": "object:6742",
           "decimals": 0,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -945,7 +946,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:2741",
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1072,11 +1073,11 @@
       "yaxes": [
         {
           "$$hashKey": "object:4253",
-          "format": "short",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1187,60 +1188,13 @@
               "value": "/^$DB$/"
             }
           ]
-        },
-        {
-          "alias": "Conflicts",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "conflicts"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Conflicts/Deadlocks",
+      "title": "Deadlocks",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1257,8 +1211,9 @@
       "yaxes": [
         {
           "$$hashKey": "object:4341",
-          "format": "short",
-          "label": null,
+          "decimals": 0,
+          "format": "none",
+          "label": "",
           "logBase": 1,
           "max": null,
           "min": null,
@@ -1280,7 +1235,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -1302,12 +1257,12 @@
         "name": "DB",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "DDoorDB",
             "value": "DDoorDB"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "cinema",
             "value": "cinema"
           },
