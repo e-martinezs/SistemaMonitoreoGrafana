@@ -15,198 +15,22 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607024973399,
+  "iteration": 1607104843485,
   "links": [],
   "panels": [
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
+      "collapsed": false,
       "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
-        "h": 8,
-        "w": 12,
+        "h": 1,
+        "w": 24,
         "x": 0,
         "y": 0
       },
-      "hiddenSeries": false,
-      "id": 10,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.2",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Rows Fetched",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT difference(mean(\"tup_fetched\")) FROM \"postgresql\" WHERE (\"db\" =~ /^$DB$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "tup_fetched"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Rows Returned",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "query": "SELECT difference(mean(\"tup_returned\")) FROM \"postgresql\" WHERE (\"db\" =~ /^$DB$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
-          "rawQuery": true,
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "tup_returned"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Rows Read",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:2136",
-          "decimals": null,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:2137",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "id": 12,
+      "panels": [],
+      "title": "CPU",
+      "type": "row"
     },
     {
       "aliasColors": {},
@@ -225,18 +49,16 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
-        "y": 0
+        "x": 0,
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 2,
       "legend": {
-        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
-        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
@@ -258,7 +80,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Rows Deleted",
+          "alias": "Uso CPU",
           "groupBy": [
             {
               "params": [
@@ -268,15 +90,15 @@
             },
             {
               "params": [
-                "null"
+                "none"
               ],
               "type": "fill"
             }
           ],
-          "measurement": "postgresql",
+          "measurement": "cpu",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT mean(\"tup_deleted\") FROM \"postgresql\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "query": "SELECT mean(\"usage_idle\") *-1+100 FROM \"cpu\" WHERE (\"host\" =~ /^$Host$/ AND \"cpu\" =~ /^$CPU$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -284,7 +106,7 @@
             [
               {
                 "params": [
-                  "tup_deleted"
+                  "usage_idle"
                 ],
                 "type": "field"
               },
@@ -292,111 +114,25 @@
                 "params": [],
                 "type": "mean"
               },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Rows Inserted",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
               {
                 "params": [
-                  "tup_inserted"
+                  "*-1+100"
                 ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
+                "type": "math"
               }
             ]
           ],
           "tags": [
             {
-              "key": "db",
+              "key": "host",
               "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Rows Updated",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
+              "value": "/^$Host$/"
             },
             {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "tup_updated"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
+              "condition": "AND",
+              "key": "cpu",
               "operator": "=~",
-              "value": "/^$DB$/"
+              "value": "/^$CPU$/"
             }
           ]
         }
@@ -405,7 +141,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Rows Write",
+      "title": "Uso de CPU (%)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -421,17 +157,166 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1573",
-          "decimals": 0,
-          "format": "none",
+          "$$hashKey": "object:378",
+          "format": "percent",
           "label": null,
           "logBase": 1,
-          "max": null,
+          "max": "100",
           "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:1574",
+          "$$hashKey": "object:379",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 14,
+      "panels": [],
+      "title": "Memoria RAM",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Uso RAM",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mem",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"used_percent\") FROM \"mem\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "used_percent"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Uso de RAM (%)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:466",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:467",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -462,211 +347,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "hiddenSeries": false,
-      "id": 6,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "connected",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "7.2.2",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "Commit",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "xact_commit"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Rollback",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "xact_rollback"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Transactions",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:2474",
-          "decimals": 0,
-          "format": "none",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:2475",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
         "x": 12,
-        "y": 8
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 8,
@@ -696,7 +378,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Connections",
+          "alias": "Total",
           "groupBy": [
             {
               "params": [
@@ -711,16 +393,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "postgresql",
+          "measurement": "mem",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"total\") FROM \"mem\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "numbackends"
+                  "total"
                 ],
                 "type": "field"
               },
@@ -732,9 +416,54 @@
           ],
           "tags": [
             {
-              "key": "db",
+              "key": "host",
               "operator": "=~",
-              "value": "/^$DB$/"
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "En uso",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mem",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"used\") FROM \"mem\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "used"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -743,7 +472,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Connections",
+      "title": "Uso de RAM (GB)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -759,9 +488,9 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:6742",
-          "decimals": 0,
-          "format": "none",
+          "$$hashKey": "object:866",
+          "decimals": 2,
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -769,7 +498,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:6743",
+          "$$hashKey": "object:867",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -801,10 +530,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 18
       },
       "hiddenSeries": false,
-      "id": 12,
+      "id": 20,
       "legend": {
         "avg": false,
         "current": false,
@@ -831,7 +560,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Cache Hit",
+          "alias": "Uso Swap",
           "groupBy": [
             {
               "params": [
@@ -846,7 +575,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "postgresql",
+          "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -855,72 +584,21 @@
             [
               {
                 "params": [
-                  "blks_hit"
+                  "used_percent"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
               }
             ]
           ],
           "tags": [
             {
-              "key": "db",
+              "key": "host",
               "operator": "=~",
-              "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Disk Read",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "blks_read"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -929,7 +607,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Buffer Cache",
+      "title": "Uso de Swap (%)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -945,16 +623,16 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:2741",
-          "format": "none",
+          "$$hashKey": "object:1607",
+          "format": "percent",
           "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "100",
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:2742",
+          "$$hashKey": "object:1608",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -986,10 +664,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 18
       },
       "hiddenSeries": false,
-      "id": 14,
+      "id": 18,
       "legend": {
         "avg": false,
         "current": false,
@@ -1016,6 +694,7 @@
       "steppedLine": false,
       "targets": [
         {
+          "alias": "Total",
           "groupBy": [
             {
               "params": [
@@ -1030,16 +709,16 @@
               "type": "fill"
             }
           ],
-          "measurement": "postgresql",
+          "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "A",
+          "refId": "B",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "temp_bytes"
+                  "total"
                 ],
                 "type": "field"
               },
@@ -1049,14 +728,63 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "En uso",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "swap",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "used"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Temp Bytes",
+      "title": "Uso de Swap (GB)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1072,7 +800,7 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:4253",
+          "$$hashKey": "object:1406",
           "format": "bytes",
           "label": null,
           "logBase": 1,
@@ -1081,7 +809,162 @@
           "show": true
         },
         {
-          "$$hashKey": "object:4254",
+          "$$hashKey": "object:1407",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 26
+      },
+      "id": 16,
+      "panels": [],
+      "repeat": null,
+      "title": "Disco",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 6,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Uso",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "disk",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "used_percent"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "path",
+              "operator": "=~",
+              "value": "/^$Disk$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Uso de Disco (%)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:554",
+          "format": "percent",
+          "label": null,
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:555",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1112,11 +995,11 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 24
+        "x": 12,
+        "y": 27
       },
       "hiddenSeries": false,
-      "id": 16,
+      "id": 10,
       "legend": {
         "avg": false,
         "current": false,
@@ -1143,7 +1026,56 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Deadlocks",
+          "alias": "Total",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "disk",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "total"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "path",
+              "operator": "=~",
+              "value": "/^$Disk$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "En uso",
           "groupBy": [
             {
               "params": [
@@ -1158,34 +1090,36 @@
               "type": "fill"
             }
           ],
-          "measurement": "postgresql",
+          "measurement": "disk",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "A",
+          "refId": "B",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "deadlocks"
+                  "used"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "difference"
               }
             ]
           ],
           "tags": [
             {
-              "key": "db",
+              "key": "path",
               "operator": "=~",
-              "value": "/^$DB$/"
+              "value": "/^$Disk$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -1194,7 +1128,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deadlocks",
+      "title": "Uso de Disco (GB)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1210,17 +1144,16 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:4341",
-          "decimals": 0,
-          "format": "none",
-          "label": "",
+          "$$hashKey": "object:1098",
+          "format": "bytes",
+          "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:4342",
+          "$$hashKey": "object:1099",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1235,7 +1168,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -1245,8 +1178,84 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "cinema",
-          "value": "cinema"
+          "text": "Edward-ASPIREV",
+          "value": "Edward-ASPIREV"
+        },
+        "datasource": "InfluxDB",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Host",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM cpu WITH KEY=host",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "cpu-total",
+          "value": "cpu-total"
+        },
+        "datasource": "InfluxDB",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "CPU",
+        "options": [
+          {
+            "selected": true,
+            "text": "cpu-total",
+            "value": "cpu-total"
+          },
+          {
+            "selected": false,
+            "text": "cpu0",
+            "value": "cpu0"
+          },
+          {
+            "selected": false,
+            "text": "cpu1",
+            "value": "cpu1"
+          },
+          {
+            "selected": false,
+            "text": "cpu2",
+            "value": "cpu2"
+          },
+          {
+            "selected": false,
+            "text": "cpu3",
+            "value": "cpu3"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM cpu WITH KEY = \"cpu\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "\\C:",
+          "value": "\\C:"
         },
         "datasource": "InfluxDB",
         "definition": "",
@@ -1254,66 +1263,10 @@
         "includeAll": false,
         "label": null,
         "multi": false,
-        "name": "DB",
-        "options": [
-          {
-            "selected": true,
-            "text": "DDoorDB",
-            "value": "DDoorDB"
-          },
-          {
-            "selected": false,
-            "text": "cinema",
-            "value": "cinema"
-          },
-          {
-            "selected": false,
-            "text": "cnr",
-            "value": "cnr"
-          },
-          {
-            "selected": false,
-            "text": "ejercicio",
-            "value": "ejercicio"
-          },
-          {
-            "selected": false,
-            "text": "library",
-            "value": "library"
-          },
-          {
-            "selected": false,
-            "text": "postgres",
-            "value": "postgres"
-          },
-          {
-            "selected": false,
-            "text": "school",
-            "value": "school"
-          },
-          {
-            "selected": false,
-            "text": "tareaNCapas",
-            "value": "tareaNCapas"
-          },
-          {
-            "selected": false,
-            "text": "tareaTest",
-            "value": "tareaTest"
-          },
-          {
-            "selected": false,
-            "text": "template0",
-            "value": "template0"
-          },
-          {
-            "selected": false,
-            "text": "template1",
-            "value": "template1"
-          }
-        ],
-        "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\"",
-        "refresh": 0,
+        "name": "Disk",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM disk WITH KEY = path",
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1331,6 +1284,6 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "PostgreSQL",
-  "uid": "p6RwUUtMk"
+  "title": "Host",
+  "uid": "I2m6yUpMz"
 }

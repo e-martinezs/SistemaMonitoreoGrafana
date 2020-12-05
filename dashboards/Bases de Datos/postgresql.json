@@ -15,6 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "iteration": 1607029806854,
   "links": [],
   "panels": [
     {
@@ -38,7 +39,7 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 12,
+      "id": 10,
       "legend": {
         "avg": false,
         "current": false,
@@ -50,7 +51,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -65,6 +66,7 @@
       "steppedLine": false,
       "targets": [
         {
+          "alias": "Rows Fetched",
           "groupBy": [
             {
               "params": [
@@ -79,16 +81,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.Servlet",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT difference(mean(\"tup_fetched\")) FROM \"postgresql\" WHERE (\"db\" =~ /^$DB$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "requestCount"
+                  "tup_fetched"
                 ],
                 "type": "field"
               },
@@ -98,13 +102,20 @@
               },
               {
                 "params": [],
-                "type": "difference"
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         },
         {
+          "alias": "Rows Returned",
           "groupBy": [
             {
               "params": [
@@ -119,16 +130,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.Servlet",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT difference(mean(\"tup_returned\")) FROM \"postgresql\" WHERE (\"db\" =~ /^$DB$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "errorCount"
+                  "tup_returned"
                 ],
                 "type": "field"
               },
@@ -138,18 +151,24 @@
               },
               {
                 "params": [],
-                "type": "difference"
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Requests/Errors",
+      "title": "Rows Read",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -165,16 +184,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3957",
-          "format": "short",
+          "$$hashKey": "object:2136",
+          "decimals": null,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:3958",
+          "$$hashKey": "object:2137",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -209,19 +229,21 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 6,
+      "id": 2,
       "legend": {
+        "alignAsTable": false,
         "avg": false,
         "current": false,
         "max": false,
         "min": false,
+        "rightSide": false,
         "show": true,
         "total": false,
         "values": false
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -236,7 +258,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Received",
+          "alias": "Rows Deleted",
           "groupBy": [
             {
               "params": [
@@ -251,16 +273,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.GlobalRequestProcessor",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"tup_deleted\") FROM \"postgresql\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "bytesReceived"
+                  "tup_deleted"
                 ],
                 "type": "field"
               },
@@ -270,14 +294,20 @@
               },
               {
                 "params": [],
-                "type": "difference"
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         },
         {
-          "alias": "Sent",
+          "alias": "Rows Inserted",
           "groupBy": [
             {
               "params": [
@@ -292,16 +322,16 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.GlobalRequestProcessor",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "B",
+          "refId": "C",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "bytesSent"
+                  "tup_inserted"
                 ],
                 "type": "field"
               },
@@ -311,18 +341,71 @@
               },
               {
                 "params": [],
-                "type": "difference"
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
+        },
+        {
+          "alias": "Rows Updated",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "postgresql",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "tup_updated"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Bytes Received/Sent",
+      "title": "Rows Write",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -338,16 +421,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3275",
-          "format": "bytes",
+          "$$hashKey": "object:1573",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:3276",
+          "$$hashKey": "object:1574",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -382,7 +466,7 @@
         "y": 8
       },
       "hiddenSeries": false,
-      "id": 4,
+      "id": 6,
       "legend": {
         "avg": false,
         "current": false,
@@ -394,7 +478,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -409,7 +493,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Hit",
+          "alias": "Commit",
           "groupBy": [
             {
               "params": [
@@ -424,7 +508,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.Cache",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -433,20 +517,30 @@
             [
               {
                 "params": [
-                  "hitCount"
+                  "xact_commit"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         },
         {
-          "alias": "Miss",
+          "alias": "Rollback",
           "groupBy": [
             {
               "params": [
@@ -461,7 +555,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.Cache",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -470,24 +564,34 @@
             [
               {
                 "params": [
-                  "lookupCount"
+                  "xact_rollback"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cache",
+      "title": "Transactions",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -503,17 +607,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:2744",
+          "$$hashKey": "object:2474",
           "decimals": 0,
-          "format": "short",
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
-          "$$hashKey": "object:2745",
+          "$$hashKey": "object:2475",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -535,7 +639,24 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {
+            "align": null,
+            "filterable": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
         "overrides": []
       },
@@ -548,7 +669,7 @@
         "y": 8
       },
       "hiddenSeries": false,
-      "id": 10,
+      "id": 8,
       "legend": {
         "avg": false,
         "current": false,
@@ -560,7 +681,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -575,6 +696,7 @@
       "steppedLine": false,
       "targets": [
         {
+          "alias": "Connections",
           "groupBy": [
             {
               "params": [
@@ -589,7 +711,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.JspMonitor",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -598,7 +720,7 @@
             [
               {
                 "params": [
-                  "jspCount"
+                  "numbackends"
                 ],
                 "type": "field"
               },
@@ -608,86 +730,20 @@
               }
             ]
           ],
-          "tags": []
-        },
-        {
-          "groupBy": [
+          "tags": [
             {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
-          ],
-          "measurement": "tomcat.JspMonitor",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "jspReloadCount"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "tomcat.JspMonitor",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "jspUnloadCount"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
+          ]
         }
       ],
       "thresholds": [],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "JSP Monitor",
+      "title": "Connections",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -703,16 +759,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3831",
-          "format": "short",
+          "$$hashKey": "object:6742",
+          "decimals": 0,
+          "format": "none",
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:3832",
+          "$$hashKey": "object:6743",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -747,7 +804,7 @@
         "y": 16
       },
       "hiddenSeries": false,
-      "id": 8,
+      "id": 12,
       "legend": {
         "avg": false,
         "current": false,
@@ -759,7 +816,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "nullPointMode": "null",
+      "nullPointMode": "connected",
       "options": {
         "alertThreshold": true
       },
@@ -774,7 +831,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Process Load",
+          "alias": "Cache Hit",
           "groupBy": [
             {
               "params": [
@@ -789,7 +846,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.OperatingSystem",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
@@ -798,20 +855,30 @@
             [
               {
                 "params": [
-                  "ProcessCpuLoad"
+                  "blks_hit"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         },
         {
-          "alias": "System Load",
+          "alias": "Disk Read",
           "groupBy": [
             {
               "params": [
@@ -826,7 +893,7 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.OperatingSystem",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "B",
@@ -835,20 +902,121 @@
             [
               {
                 "params": [
-                  "SystemCpuLoad"
+                  "blks_read"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Buffer Cache",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2741",
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
         },
         {
-          "alias": "System Load Average",
+          "$$hashKey": "object:2742",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Temp Bytes",
           "groupBy": [
             {
               "params": [
@@ -863,16 +1031,18 @@
               "type": "fill"
             }
           ],
-          "measurement": "tomcat.OperatingSystem",
+          "measurement": "postgresql",
           "orderByTime": "ASC",
           "policy": "default",
-          "refId": "C",
+          "query": "SELECT mean(\"temp_bytes\") FROM \"postgresql\" WHERE $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
+          "refId": "A",
           "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "SystemLoadAverage"
+                  "temp_bytes"
                 ],
                 "type": "field"
               },
@@ -889,7 +1059,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "CPU Load",
+      "title": "Temp File Bytes",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -905,8 +1075,8 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3465",
-          "format": "percent",
+          "$$hashKey": "object:4253",
+          "format": "bytes",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -914,7 +1084,148 @@
           "show": true
         },
         {
-          "$$hashKey": "object:3466",
+          "$$hashKey": "object:4254",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "hiddenSeries": false,
+      "id": 16,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Deadlocks",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "postgresql",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT non_negative_difference(mean(\"deadlocks\")) FROM \"postgresql\" WHERE (\"db\" =~ /^$DB$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "deadlocks"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Deadlocks",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4341",
+          "decimals": 0,
+          "format": "none",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4342",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -929,12 +1240,95 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        },
+        "datasource": "InfluxDB",
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "DB",
+        "options": [
+          {
+            "selected": false,
+            "text": "DDoorDB",
+            "value": "DDoorDB"
+          },
+          {
+            "selected": false,
+            "text": "cinema",
+            "value": "cinema"
+          },
+          {
+            "selected": false,
+            "text": "cnr",
+            "value": "cnr"
+          },
+          {
+            "selected": false,
+            "text": "ejercicio",
+            "value": "ejercicio"
+          },
+          {
+            "selected": false,
+            "text": "library",
+            "value": "library"
+          },
+          {
+            "selected": false,
+            "text": "postgres",
+            "value": "postgres"
+          },
+          {
+            "selected": true,
+            "text": "school",
+            "value": "school"
+          },
+          {
+            "selected": false,
+            "text": "tareaNCapas",
+            "value": "tareaNCapas"
+          },
+          {
+            "selected": false,
+            "text": "tareaTest",
+            "value": "tareaTest"
+          },
+          {
+            "selected": false,
+            "text": "template0",
+            "value": "template0"
+          },
+          {
+            "selected": false,
+            "text": "template1",
+            "value": "template1"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\"",
+        "refresh": 0,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -942,6 +1336,6 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Tomcat Jolokia",
-  "uid": "EuDaugAGzm"
+  "title": "PostgreSQL",
+  "uid": "p6RwUUtMk"
 }
