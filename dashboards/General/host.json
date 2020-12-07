@@ -15,8 +15,20 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607104843485,
-  "links": [],
+  "iteration": 1607315232262,
+  "links": [
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Reporte",
+      "tooltip": "Generar reporte PDF",
+      "type": "link",
+      "url": "http://localhost:8686/api/v5/report/I2m6yUpMz?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    }
+  ],
   "panels": [
     {
       "collapsed": false,
@@ -1168,7 +1180,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -1182,6 +1194,7 @@
           "value": "Edward-ASPIREV"
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": null,
@@ -1207,6 +1220,7 @@
           "value": "cpu-total"
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": null,

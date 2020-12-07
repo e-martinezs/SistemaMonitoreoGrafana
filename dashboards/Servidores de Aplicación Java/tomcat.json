@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607010246272,
+  "iteration": 1607292868824,
   "links": [],
   "panels": [
     {
@@ -1432,7 +1432,7 @@
         "includeAll": true,
         "label": null,
         "multi": false,
-        "name": "NameMemoryPool",
+        "name": "MemoryPool",
         "options": [
           {
             "selected": true,
@@ -1494,7 +1494,7 @@
         "includeAll": true,
         "label": null,
         "multi": false,
-        "name": "NameConnector",
+        "name": "Connector",
         "options": [
           {
             "selected": true,
@@ -1536,7 +1536,7 @@
         "includeAll": true,
         "label": null,
         "multi": false,
-        "name": "TypeMemoryPool",
+        "name": "TipoMemoria",
         "options": [
           {
             "selected": true,
