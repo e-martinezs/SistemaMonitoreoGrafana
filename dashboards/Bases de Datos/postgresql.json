@@ -15,8 +15,20 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607029806854,
-  "links": [],
+  "iteration": 1607472242918,
+  "links": [
+    {
+      "icon": "doc",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Reporte",
+      "tooltip": "Generar reporte PDF",
+      "type": "link",
+      "url": "http://localhost:8686/api/v5/report/p6RwUUtMk?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    }
+  ],
   "panels": [
     {
       "aliasColors": {},
@@ -66,7 +78,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Rows Fetched",
+          "alias": "Filas Fetched",
           "groupBy": [
             {
               "params": [
@@ -111,11 +123,17 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Rows Returned",
+          "alias": "Filas Retornadas",
           "groupBy": [
             {
               "params": [
@@ -160,6 +178,12 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -168,7 +192,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Rows Read",
+      "title": "Filas Lectura",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -258,7 +282,60 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Rows Deleted",
+          "alias": "Filas Insertadas",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "postgresql",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "tup_inserted"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            }
+          ]
+        },
+        {
+          "alias": "Filas Eliminadas",
           "groupBy": [
             {
               "params": [
@@ -303,58 +380,17 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
-            }
-          ]
-        },
-        {
-          "alias": "Rows Inserted",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
             },
             {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "postgresql",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "tup_inserted"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [],
-                "type": "non_negative_difference"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "db",
+              "condition": "AND",
+              "key": "host",
               "operator": "=~",
-              "value": "/^$DB$/"
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Rows Updated",
+          "alias": "Filas Actualizadas",
           "groupBy": [
             {
               "params": [
@@ -397,6 +433,12 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -405,7 +447,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Rows Write",
+      "title": "Filas Escritura",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -493,7 +535,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Commit",
+          "alias": "Commits",
           "groupBy": [
             {
               "params": [
@@ -536,11 +578,17 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Rollback",
+          "alias": "Rollbacks",
           "groupBy": [
             {
               "params": [
@@ -583,6 +631,12 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -591,7 +645,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Transactions",
+      "title": "Transacciones",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -696,7 +750,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Connections",
+          "alias": "Conexiones",
           "groupBy": [
             {
               "params": [
@@ -735,6 +789,12 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -743,7 +803,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Connections",
+      "title": "Conexiones",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -831,7 +891,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Cache Hit",
+          "alias": "Hit",
           "groupBy": [
             {
               "params": [
@@ -874,11 +934,17 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         },
         {
-          "alias": "Disk Read",
+          "alias": "Fallo",
           "groupBy": [
             {
               "params": [
@@ -921,6 +987,12 @@
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
             }
           ]
         }
@@ -929,7 +1001,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Buffer Cache",
+      "title": "Cache",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1016,7 +1088,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Temp Bytes",
+          "alias": "Bytes Temporales",
           "groupBy": [
             {
               "params": [
@@ -1059,7 +1131,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Temp File Bytes",
+      "title": "Bytes de Archivos Temporales",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1221,7 +1293,7 @@
           "label": "",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1249,6 +1321,32 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
+          "text": "Edward-ASPIREV",
+          "value": "Edward-ASPIREV"
+        },
+        "datasource": "InfluxDB",
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Host",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"host\"",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
           "selected": true,
           "text": "cinema",
           "value": "cinema"
@@ -1257,68 +1355,12 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
-        "label": null,
+        "label": "Base de Datos",
         "multi": false,
         "name": "DB",
-        "options": [
-          {
-            "selected": false,
-            "text": "DDoorDB",
-            "value": "DDoorDB"
-          },
-          {
-            "selected": false,
-            "text": "cinema",
-            "value": "cinema"
-          },
-          {
-            "selected": false,
-            "text": "cnr",
-            "value": "cnr"
-          },
-          {
-            "selected": false,
-            "text": "ejercicio",
-            "value": "ejercicio"
-          },
-          {
-            "selected": false,
-            "text": "library",
-            "value": "library"
-          },
-          {
-            "selected": false,
-            "text": "postgres",
-            "value": "postgres"
-          },
-          {
-            "selected": true,
-            "text": "school",
-            "value": "school"
-          },
-          {
-            "selected": false,
-            "text": "tareaNCapas",
-            "value": "tareaNCapas"
-          },
-          {
-            "selected": false,
-            "text": "tareaTest",
-            "value": "tareaTest"
-          },
-          {
-            "selected": false,
-            "text": "template0",
-            "value": "template0"
-          },
-          {
-            "selected": false,
-            "text": "template1",
-            "value": "template1"
-          }
-        ],
+        "options": [],
         "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\"",
-        "refresh": 0,
+        "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
@@ -1331,7 +1373,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
