@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607472242918,
+  "iteration": 1607640484170,
   "links": [
     {
       "icon": "doc",
@@ -1352,14 +1352,13 @@
           "value": "cinema"
         },
         "datasource": "InfluxDB",
-        "definition": "",
         "hide": 0,
         "includeAll": false,
         "label": "Base de Datos",
         "multi": false,
         "name": "DB",
         "options": [],
-        "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\"",
+        "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,

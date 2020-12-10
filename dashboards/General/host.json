@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607471999805,
+  "iteration": 1607640622356,
   "links": [
     {
       "icon": "doc",
@@ -590,6 +590,8 @@
           "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"used_percent\") FROM \"swap\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -724,6 +726,8 @@
           "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"total\") FROM \"swap\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -767,6 +771,8 @@
           "measurement": "swap",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"used\") FROM \"swap\" WHERE (\"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -916,6 +922,8 @@
           "measurement": "disk",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"used_percent\") FROM \"disk\" WHERE (\"path\" =~ /^$Path$/ AND \"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1056,6 +1064,8 @@
           "measurement": "disk",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"total\") FROM \"disk\" WHERE (\"path\" =~ /^$Path$/ AND \"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(none)",
+          "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
           "select": [
@@ -1105,6 +1115,8 @@
           "measurement": "disk",
           "orderByTime": "ASC",
           "policy": "default",
+          "query": "SELECT mean(\"used\") FROM \"disk\" WHERE (\"path\" =~ /^$Path$/ AND \"host\" =~ /^$Host$/) AND $timeFilter GROUP BY time($__interval) fill(null)",
+          "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
           "select": [
@@ -1263,7 +1275,7 @@
                 "params": [
                   "10s"
                 ],
-                "type": "derivative"
+                "type": "non_negative_derivative"
               }
             ]
           ],
@@ -1312,7 +1324,7 @@
                 "params": [
                   "10s"
                 ],
-                "type": "derivative"
+                "type": "non_negative_derivative"
               }
             ]
           ],
@@ -1329,7 +1341,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Reads/Writes",
+      "title": "Reads/Writes (IOPS)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1346,7 +1358,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:1573",
-          "format": "none",
+          "format": "iops",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -2209,7 +2221,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -2522,7 +2534,7 @@
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
-            "mean"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
@@ -2601,7 +2613,7 @@
         "multi": false,
         "name": "Host",
         "options": [],
-        "query": "SHOW TAG VALUES FROM cpu WITH KEY=host",
+        "query": "SHOW TAG VALUES FROM \"cpu\" WITH KEY = \"host\"",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2627,7 +2639,7 @@
         "multi": false,
         "name": "CPU",
         "options": [],
-        "query": "SHOW TAG VALUES FROM cpu WITH KEY = \"cpu\"",
+        "query": "SHOW TAG VALUES FROM \"cpu\" WITH KEY = \"cpu\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2653,7 +2665,7 @@
         "multi": false,
         "name": "Path",
         "options": [],
-        "query": "SHOW TAG VALUES FROM disk WITH KEY = path",
+        "query": "SHOW TAG VALUES FROM \"disk\" WITH KEY = \"path\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2679,7 +2691,7 @@
         "multi": false,
         "name": "Name",
         "options": [],
-        "query": "SHOW TAG VALUES FROM \"diskio\" WITH KEY = \"name\"",
+        "query": "SHOW TAG VALUES FROM \"diskio\" WITH KEY = \"name\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -2705,7 +2717,7 @@
         "multi": false,
         "name": "Interface",
         "options": [],
-        "query": "SHOW TAG VALUES FROM \"net\" WITH KEY = \"interface\"",
+        "query": "SHOW TAG VALUES FROM \"net\" WITH KEY = \"interface\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
