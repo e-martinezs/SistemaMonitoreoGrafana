@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607640484170,
+  "iteration": 1608156401681,
   "links": [
     {
       "icon": "doc",
@@ -30,6 +30,28 @@
     }
   ],
   "panels": [
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 18,
+      "panels": [],
+      "repeat": "DB",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
+      "title": "Database ($DB)",
+      "type": "row"
+    },
     {
       "aliasColors": {},
       "bars": false,
@@ -48,7 +70,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 10,
@@ -72,6 +94,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -120,15 +149,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         },
@@ -175,15 +204,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         }
@@ -250,7 +279,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 0
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 2,
@@ -276,6 +305,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -322,15 +358,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         },
@@ -377,15 +413,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         },
@@ -430,15 +466,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         }
@@ -505,7 +541,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 6,
@@ -529,6 +565,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -575,15 +618,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         },
@@ -720,7 +763,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 8,
@@ -744,6 +787,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -786,15 +836,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         }
@@ -861,7 +911,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 17
       },
       "hiddenSeries": false,
       "id": 12,
@@ -885,6 +935,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -931,15 +988,15 @@
           ],
           "tags": [
             {
-              "key": "db",
-              "operator": "=~",
-              "value": "/^$DB$/"
-            },
-            {
-              "condition": "AND",
               "key": "host",
               "operator": "=~",
               "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
             }
           ]
         },
@@ -1058,7 +1115,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 17
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1082,6 +1139,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1124,7 +1188,19 @@
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            }
+          ]
         }
       ],
       "thresholds": [],
@@ -1188,7 +1264,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 24
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1212,6 +1288,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "cinema",
+          "value": "cinema"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1260,6 +1343,12 @@
           ],
           "tags": [
             {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
               "key": "db",
               "operator": "=~",
               "value": "/^$DB$/"
@@ -1352,10 +1441,11 @@
           "value": "cinema"
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": "Base de Datos",
-        "multi": false,
+        "multi": true,
         "name": "DB",
         "options": [],
         "query": "SHOW TAG VALUES FROM \"postgresql\" WITH KEY = \"db\" WHERE \"host\" =~ /^$Host$/",

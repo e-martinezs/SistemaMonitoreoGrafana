@@ -15,8 +15,19 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "hideControls": false,
-  "links": [],
+  "links": [
+    {
+      "icon": "doc",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Reporte",
+      "tooltip": "Generar reporte PDF",
+      "type": "link",
+      "url": "http://localhost:8686/api/v5/report/txPIglAMk?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    }
+  ],
   "panels": [],
   "schemaVersion": 26,
   "style": "dark",

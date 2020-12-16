@@ -15,8 +15,20 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1607640373781,
-  "links": [],
+  "iteration": 1608157992184,
+  "links": [
+    {
+      "icon": "doc",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Reporte",
+      "tooltip": "Generar reporte PDF",
+      "type": "link",
+      "url": "http://localhost:8686/api/v5/report/hsyng_0Mk?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    }
+  ],
   "panels": [
     {
       "collapsed": false,
@@ -29,7 +41,7 @@
       },
       "id": 2,
       "panels": [],
-      "title": "Status",
+      "title": "MongoDB",
       "type": "row"
     },
     {
@@ -80,6 +92,7 @@
       "steppedLine": false,
       "targets": [
         {
+          "alias": "Queries",
           "groupBy": [
             {
               "params": [
@@ -412,7 +425,15 @@
       },
       "id": 6,
       "panels": [],
-      "title": "Database",
+      "repeat": "DB",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
+      "title": "Database ($DB)",
       "type": "row"
     },
     {
@@ -460,6 +481,13 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.2.2",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
       "targets": [
         {
           "groupBy": [
@@ -559,6 +587,13 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.2.2",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
       "targets": [
         {
           "groupBy": [
@@ -656,6 +691,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -896,6 +938,13 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.2.2",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
       "targets": [
         {
           "groupBy": [
@@ -970,7 +1019,7 @@
               }
             ]
           },
-          "unit": "none"
+          "unit": "bytes"
         },
         "overrides": []
       },
@@ -996,6 +1045,13 @@
         "textMode": "auto"
       },
       "pluginVersion": "7.2.2",
+      "scopedVars": {
+        "DB": {
+          "selected": true,
+          "text": "mycustomers",
+          "value": "mycustomers"
+        }
+      },
       "targets": [
         {
           "groupBy": [
@@ -1062,7 +1118,15 @@
       },
       "id": 4,
       "panels": [],
-      "title": "Collections",
+      "repeat": "Collection",
+      "scopedVars": {
+        "Collection": {
+          "selected": true,
+          "text": "mycustomers.customers",
+          "value": "mycustomers.customers"
+        }
+      },
+      "title": "Collections ($Collection)",
       "type": "row"
     },
     {
@@ -1107,6 +1171,13 @@
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
+      "scopedVars": {
+        "Collection": {
+          "selected": true,
+          "text": "mycustomers.customers",
+          "value": "mycustomers.customers"
+        }
+      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -1155,15 +1226,15 @@
             },
             {
               "condition": "AND",
-              "key": "collection",
-              "operator": "=~",
-              "value": "/^$Collection$/"
-            },
-            {
-              "condition": "AND",
               "key": "db_name",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "collection",
+              "operator": "=~",
+              "value": "/^$Collection$/"
             }
           ]
         },
@@ -1210,15 +1281,15 @@
             },
             {
               "condition": "AND",
-              "key": "collection",
-              "operator": "=~",
-              "value": "/^$Collection$/"
-            },
-            {
-              "condition": "AND",
               "key": "db_name",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "collection",
+              "operator": "=~",
+              "value": "/^$Collection$/"
             }
           ]
         },
@@ -1265,15 +1336,15 @@
             },
             {
               "condition": "AND",
-              "key": "collection",
-              "operator": "=~",
-              "value": "/^$Collection$/"
-            },
-            {
-              "condition": "AND",
               "key": "db_name",
               "operator": "=~",
               "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "collection",
+              "operator": "=~",
+              "value": "/^$Collection$/"
             }
           ]
         }
@@ -1320,9 +1391,289 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.2.2",
+      "scopedVars": {
+        "Collection": {
+          "selected": true,
+          "text": "mycustomers.customers",
+          "value": "mycustomers.customers"
+        }
+      },
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mongodb_col_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "avg_obj_size"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db_name",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "collection",
+              "operator": "=~",
+              "value": "/^$Collection$/"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Average Object Size",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "scopedVars": {
+        "Collection": {
+          "selected": true,
+          "text": "mycustomers.customers",
+          "value": "mycustomers.customers"
+        }
+      },
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Objects",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "mongodb_col_stats",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "count"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$Host$/"
+            },
+            {
+              "condition": "AND",
+              "key": "db_name",
+              "operator": "=~",
+              "value": "/^$DB$/"
+            },
+            {
+              "condition": "AND",
+              "key": "collection",
+              "operator": "=~",
+              "value": "/^$Collection$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Objects",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:12229",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:12230",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -1362,10 +1713,11 @@
           "value": "mycustomers"
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "DB",
         "options": [],
         "query": "SHOW TAG VALUES FROM \"mongodb_db_stats\" WITH KEY = \"db_name\" WHERE \"host\" =~ /^$Host$/",
@@ -1389,9 +1741,9 @@
         "datasource": "InfluxDB",
         "definition": "",
         "hide": 0,
-        "includeAll": false,
+        "includeAll": true,
         "label": null,
-        "multi": false,
+        "multi": true,
         "name": "Collection",
         "options": [],
         "query": "SHOW TAG VALUES FROM \"mongodb_col_stats\" WITH KEY = \"collection\" WHERE \"db_name\" =~ /^$DB$/",
