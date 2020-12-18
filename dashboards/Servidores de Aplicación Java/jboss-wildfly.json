@@ -14,8 +14,8 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1608157876827,
+  "graphTooltip": 2,
+  "iteration": 1608315047633,
   "links": [
     {
       "icon": "doc",
@@ -26,7 +26,17 @@
       "title": "Reporte",
       "tooltip": "Generar reporte PDF",
       "type": "link",
-      "url": "http://localhost:8686/api/v5/report/3H74g_0Mz?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+      "url": "http://localhost:8686/api/v5/report/${__dashboard.uid}?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    },
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Host"
+      ],
+      "targetBlank": true,
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -2110,7 +2120,9 @@
   "refresh": "5s",
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "JavaApplicationServer"
+  ],
   "templating": {
     "list": [
       {

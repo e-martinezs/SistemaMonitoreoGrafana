@@ -14,8 +14,8 @@
   },
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1608156560399,
+  "graphTooltip": 2,
+  "iteration": 1608315088386,
   "links": [
     {
       "icon": "doc",
@@ -26,7 +26,17 @@
       "title": "Reporte",
       "tooltip": "Generar reporte PDF",
       "type": "link",
-      "url": "http://localhost:8686/api/v5/report/s-GHR3tGk?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+      "url": "http://localhost:8686/api/v5/report/${__dashboard.uid}?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    },
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Host"
+      ],
+      "targetBlank": true,
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -2544,7 +2554,9 @@
   "refresh": "5s",
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "JavaApplicationServer"
+  ],
   "templating": {
     "list": [
       {
@@ -2646,6 +2658,7 @@
           ]
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": "Garbage Collector",

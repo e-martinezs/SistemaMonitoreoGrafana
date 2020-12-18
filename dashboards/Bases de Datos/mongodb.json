@@ -12,10 +12,11 @@
       }
     ]
   },
+  "description": "",
   "editable": true,
   "gnetId": null,
-  "graphTooltip": 0,
-  "iteration": 1608157992184,
+  "graphTooltip": 2,
+  "iteration": 1608315121888,
   "links": [
     {
       "icon": "doc",
@@ -26,7 +27,17 @@
       "title": "Reporte",
       "tooltip": "Generar reporte PDF",
       "type": "link",
-      "url": "http://localhost:8686/api/v5/report/hsyng_0Mk?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+      "url": "http://localhost:8686/api/v5/report/${__dashboard.uid}?apitoken=eyJrIjoiRjIyd0ZjTWlZMTQ5UWx4dVF5TXZxVVJyQnpQanpabUMiLCJuIjoiUmVwb3J0ZXIiLCJpZCI6MX0="
+    },
+    {
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Host"
+      ],
+      "targetBlank": true,
+      "type": "dashboards"
     }
   ],
   "panels": [
@@ -1676,7 +1687,9 @@
   "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "Database"
+  ],
   "templating": {
     "list": [
       {
