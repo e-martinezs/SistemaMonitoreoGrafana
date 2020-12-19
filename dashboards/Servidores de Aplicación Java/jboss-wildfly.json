@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1608315047633,
+  "iteration": 1608418570526,
   "links": [
     {
       "icon": "doc",
@@ -1751,100 +1751,6 @@
       "id": 14,
       "panels": [
         {
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {},
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              },
-              "unit": "ms"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 5
-          },
-          "id": 6,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.2.2",
-          "targets": [
-            {
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_runtime",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Uptime"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "last"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                }
-              ]
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Uptime",
-          "type": "stat"
-        },
-        {
           "aliasColors": {},
           "bars": false,
           "dashLength": 10,
@@ -1861,7 +1767,7 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 5
           },
           "hiddenSeries": false,
@@ -1902,7 +1808,7 @@
                 },
                 {
                   "params": [
-                    "null"
+                    "none"
                   ],
                   "type": "fill"
                 }
@@ -1959,8 +1865,8 @@
               "format": "percentunit",
               "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
+              "max": "1",
+              "min": "0",
               "show": true
             },
             {
@@ -1995,8 +1901,8 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 13
+            "x": 12,
+            "y": 5
           },
           "hiddenSeries": false,
           "id": 2,
@@ -2093,8 +1999,8 @@
               "format": "percentunit",
               "label": null,
               "logBase": 1,
-              "max": null,
-              "min": null,
+              "max": "1",
+              "min": "0",
               "show": true
             },
             {
@@ -2113,11 +2019,985 @@
           }
         }
       ],
-      "title": "Other",
+      "title": "System Load",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 34,
+      "panels": [
+        {
+          "aliasColors": {
+            "Committed": "blue",
+            "Init": "purple",
+            "Used": "yellow"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fill": 5,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "hiddenSeries": false,
+          "id": 36,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.2.2",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "scopedVars": {
+            "MemoryPool": {
+              "selected": true,
+              "text": "PS Eden Space",
+              "value": "PS Eden Space"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Max",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.max"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Committed",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.committed"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Used",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.used"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Init",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.init"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Pool Usage",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:4879",
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:4880",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeat": "MemoryPool",
+      "scopedVars": {
+        "MemoryPool": {
+          "selected": true,
+          "text": "PS Eden Space",
+          "value": "PS Eden Space"
+        }
+      },
+      "title": "Memory Pool ($MemoryPool)",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 37,
+      "panels": [
+        {
+          "aliasColors": {
+            "Committed": "blue",
+            "Init": "purple",
+            "Used": "yellow"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fill": 5,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "hiddenSeries": false,
+          "id": 38,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.2.2",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "repeatIteration": 1608418570526,
+          "repeatPanelId": 36,
+          "repeatedByRow": true,
+          "scopedVars": {
+            "MemoryPool": {
+              "selected": true,
+              "text": "PS Old Gen",
+              "value": "PS Old Gen"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Max",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.max"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Committed",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.committed"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Used",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.used"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Init",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.init"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Pool Usage",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:4879",
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:4880",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeatIteration": 1608418570526,
+      "repeatPanelId": 34,
+      "scopedVars": {
+        "MemoryPool": {
+          "selected": true,
+          "text": "PS Old Gen",
+          "value": "PS Old Gen"
+        }
+      },
+      "title": "Memory Pool ($MemoryPool)",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 39,
+      "panels": [
+        {
+          "aliasColors": {
+            "Committed": "blue",
+            "Init": "purple",
+            "Used": "yellow"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
+          "fill": 5,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 11,
+            "w": 24,
+            "x": 0,
+            "y": 1
+          },
+          "hiddenSeries": false,
+          "id": 40,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "connected",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.2.2",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "repeatIteration": 1608418570526,
+          "repeatPanelId": 36,
+          "repeatedByRow": true,
+          "scopedVars": {
+            "MemoryPool": {
+              "selected": true,
+              "text": "PS Survivor Space",
+              "value": "PS Survivor Space"
+            }
+          },
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "Max",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.max"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Committed",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "B",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.committed"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Used",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "C",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.used"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            },
+            {
+              "alias": "Init",
+              "groupBy": [
+                {
+                  "params": [
+                    "$__interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "jboss.jvm_memory_pool",
+              "orderByTime": "ASC",
+              "policy": "default",
+              "refId": "D",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "Usage.init"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$Host$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "pool_name",
+                  "operator": "=~",
+                  "value": "/^$MemoryPool$/"
+                }
+              ]
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Memory Pool Usage",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:4879",
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:4880",
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeatIteration": 1608418570526,
+      "repeatPanelId": 34,
+      "scopedVars": {
+        "MemoryPool": {
+          "selected": true,
+          "text": "PS Survivor Space",
+          "value": "PS Survivor Space"
+        }
+      },
+      "title": "Memory Pool ($MemoryPool)",
       "type": "row"
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -2155,8 +3035,13 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "ExampleDS",
-          "value": "ExampleDS"
+          "tags": [],
+          "text": [
+            "ExampleDS"
+          ],
+          "value": [
+            "ExampleDS"
+          ]
         },
         "datasource": "InfluxDB",
         "definition": "",
@@ -2180,7 +3065,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "PS Scavenge",
           "value": "PS Scavenge"
         },
@@ -2194,6 +3079,72 @@
         "options": [],
         "query": "SHOW TAG VALUES FROM \"jboss.jvm_garbage_collector\" WITH KEY = \"name\"",
         "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "tags": [],
+          "text": [
+            "Code Cache"
+          ],
+          "value": [
+            "Code Cache"
+          ]
+        },
+        "datasource": "InfluxDB",
+        "hide": 0,
+        "includeAll": true,
+        "label": null,
+        "multi": true,
+        "name": "MemoryPool",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": false,
+            "text": "Code Cache",
+            "value": "Code Cache"
+          },
+          {
+            "selected": false,
+            "text": "Compressed Class Space",
+            "value": "Compressed Class Space"
+          },
+          {
+            "selected": false,
+            "text": "Metaspace",
+            "value": "Metaspace"
+          },
+          {
+            "selected": true,
+            "text": "PS Eden Space",
+            "value": "PS Eden Space"
+          },
+          {
+            "selected": true,
+            "text": "PS Old Gen",
+            "value": "PS Old Gen"
+          },
+          {
+            "selected": true,
+            "text": "PS Survivor Space",
+            "value": "PS Survivor Space"
+          }
+        ],
+        "query": "SHOW TAG VALUES FROM \"jboss.jvm_memory_pool\" WITH KEY = \"pool_name\" WHERE \"host\" =~ /^$Host$/",
+        "refresh": 0,
         "regex": "",
         "skipUrlSync": false,
         "sort": 0,
