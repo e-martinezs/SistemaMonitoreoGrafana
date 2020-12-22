@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1608418570526,
+  "iteration": 1608678657882,
   "links": [
     {
       "icon": "doc",
@@ -2402,7 +2402,7 @@
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1608418570526,
+          "repeatIteration": 1608678657882,
           "repeatPanelId": 36,
           "repeatedByRow": true,
           "scopedVars": {
@@ -2658,7 +2658,7 @@
           }
         }
       ],
-      "repeatIteration": 1608418570526,
+      "repeatIteration": 1608678657882,
       "repeatPanelId": 34,
       "scopedVars": {
         "MemoryPool": {
@@ -2728,7 +2728,7 @@
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1608418570526,
+          "repeatIteration": 1608678657882,
           "repeatPanelId": 36,
           "repeatedByRow": true,
           "scopedVars": {
@@ -2984,7 +2984,7 @@
           }
         }
       ],
-      "repeatIteration": 1608418570526,
+      "repeatIteration": 1608678657882,
       "repeatPanelId": 34,
       "scopedVars": {
         "MemoryPool": {
@@ -3101,6 +3101,7 @@
           ]
         },
         "datasource": "InfluxDB",
+        "definition": "",
         "hide": 0,
         "includeAll": true,
         "label": null,
@@ -3162,6 +3163,6 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "JBoss/WildFly",
+  "title": "WildFly",
   "uid": "3H74g_0Mz"
 }
