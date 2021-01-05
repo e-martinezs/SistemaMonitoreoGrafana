@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1608678657882,
+  "iteration": 1609818307136,
   "links": [
     {
       "icon": "doc",
@@ -56,7 +56,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -233,7 +233,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -425,7 +425,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -688,7 +688,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -966,7 +966,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1073,7 +1073,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Collection Count",
+          "title": "Collection Count - $GC",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1117,7 +1117,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1224,7 +1224,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Collection Time",
+          "title": "Collection Time - $GC",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1282,7 +1282,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 5
       },
       "id": 32,
       "panels": [
@@ -1291,7 +1291,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1331,8 +1331,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "ExampleDS",
-              "value": "ExampleDS"
+              "text": "InfluxDB",
+              "value": "InfluxDB"
             }
           },
           "seriesOverrides": [],
@@ -1385,7 +1385,7 @@
                   "condition": "AND",
                   "key": "data-source",
                   "operator": "=~",
-                  "value": "/^$Datasource$/"
+                  "value": "/^$JBossDatasource$/"
                 }
               ]
             },
@@ -1434,7 +1434,7 @@
                   "condition": "AND",
                   "key": "data-source",
                   "operator": "=~",
-                  "value": "/^$Datasource$/"
+                  "value": "/^$JBossDatasource$/"
                 }
               ]
             }
@@ -1443,7 +1443,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Datasources",
+          "title": "Datasources - $JBossDatasource",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1487,7 +1487,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1527,8 +1527,8 @@
           "scopedVars": {
             "Datasource": {
               "selected": true,
-              "text": "ExampleDS",
-              "value": "ExampleDS"
+              "text": "InfluxDB",
+              "value": "InfluxDB"
             }
           },
           "seriesOverrides": [],
@@ -1581,7 +1581,7 @@
                   "condition": "AND",
                   "key": "data-source",
                   "operator": "=~",
-                  "value": "/^$Datasource$/"
+                  "value": "/^$JBossDatasource$/"
                 }
               ]
             },
@@ -1630,7 +1630,7 @@
                   "condition": "AND",
                   "key": "data-source",
                   "operator": "=~",
-                  "value": "/^$Datasource$/"
+                  "value": "/^$JBossDatasource$/"
                 }
               ]
             },
@@ -1679,7 +1679,7 @@
                   "condition": "AND",
                   "key": "data-source",
                   "operator": "=~",
-                  "value": "/^$Datasource$/"
+                  "value": "/^$JBossDatasource$/"
                 }
               ]
             }
@@ -1688,7 +1688,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Prepared Statement Cache",
+          "title": "Prepared Statement Cache  - $JBossDatasource",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -1732,11 +1732,11 @@
       "scopedVars": {
         "Datasource": {
           "selected": true,
-          "text": "ExampleDS",
-          "value": "ExampleDS"
+          "text": "InfluxDB",
+          "value": "InfluxDB"
         }
       },
-      "title": "Datasources ($Datasource)",
+      "title": "Datasources ($JBossDatasource)",
       "type": "row"
     },
     {
@@ -1746,290 +1746,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
-      },
-      "id": 14,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 5
-          },
-          "hiddenSeries": false,
-          "id": 4,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.2.2",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "CPU Load",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_operating_system",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "SystemCpuLoad"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "System CPU Load",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1175",
-              "format": "percentunit",
-              "label": null,
-              "logBase": 1,
-              "max": "1",
-              "min": "0",
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1176",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 5
-          },
-          "hiddenSeries": false,
-          "id": 2,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "connected",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.2.2",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "CPU Load",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_operating_system",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "ProcessCpuLoad"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Process CPU Load",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "$$hashKey": "object:1297",
-              "format": "percentunit",
-              "label": null,
-              "logBase": 1,
-              "max": "1",
-              "min": "0",
-              "show": true
-            },
-            {
-              "$$hashKey": "object:1298",
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
-      "title": "System Load",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 5
+        "y": 11
       },
       "id": 34,
       "panels": [
@@ -2042,7 +1759,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -2052,10 +1769,10 @@
           "fill": 5,
           "fillGradient": 0,
           "gridPos": {
-            "h": 11,
-            "w": 24,
+            "h": 10,
+            "w": 12,
             "x": 0,
-            "y": 1
+            "y": 14
           },
           "hiddenSeries": false,
           "id": 36,
@@ -2293,7 +2010,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Memory Pool Usage",
+          "title": "Memory Pool Usage - $MemoryPool",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -2351,45 +2068,40 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 23
       },
-      "id": 37,
+      "id": 14,
       "panels": [
         {
-          "aliasColors": {
-            "Committed": "blue",
-            "Init": "purple",
-            "Used": "yellow"
-          },
+          "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
             },
             "overrides": []
           },
-          "fill": 5,
+          "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 11,
-            "w": 24,
+            "h": 8,
+            "w": 12,
             "x": 0,
-            "y": 1
+            "y": 5
           },
           "hiddenSeries": false,
-          "id": 38,
+          "id": 4,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -2402,23 +2114,13 @@
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1608678657882,
-          "repeatPanelId": 36,
-          "repeatedByRow": true,
-          "scopedVars": {
-            "MemoryPool": {
-              "selected": true,
-              "text": "PS Old Gen",
-              "value": "PS Old Gen"
-            }
-          },
           "seriesOverrides": [],
           "spaceLength": 10,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "alias": "Max",
+              "alias": "CPU Load",
               "groupBy": [
                 {
                   "params": [
@@ -2428,12 +2130,12 @@
                 },
                 {
                   "params": [
-                    "null"
+                    "none"
                   ],
                   "type": "fill"
                 }
               ],
-              "measurement": "jboss.jvm_memory_pool",
+              "measurement": "jboss.jvm_operating_system",
               "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
@@ -2442,7 +2144,7 @@
                 [
                   {
                     "params": [
-                      "Usage.max"
+                      "SystemCpuLoad"
                     ],
                     "type": "field"
                   },
@@ -2457,159 +2159,6 @@
                   "key": "host",
                   "operator": "=~",
                   "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Committed",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.committed"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Used",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "C",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.used"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Init",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "D",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.init"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
                 }
               ]
             }
@@ -2618,7 +2167,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Memory Pool Usage",
+          "title": "System CPU Load",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -2634,16 +2183,16 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:4879",
-              "format": "bytes",
+              "$$hashKey": "object:1175",
+              "format": "percentunit",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "1",
               "min": "0",
               "show": true
             },
             {
-              "$$hashKey": "object:4880",
+              "$$hashKey": "object:1176",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -2656,66 +2205,37 @@
             "align": false,
             "alignLevel": null
           }
-        }
-      ],
-      "repeatIteration": 1608678657882,
-      "repeatPanelId": 34,
-      "scopedVars": {
-        "MemoryPool": {
-          "selected": true,
-          "text": "PS Old Gen",
-          "value": "PS Old Gen"
-        }
-      },
-      "title": "Memory Pool ($MemoryPool)",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "id": 39,
-      "panels": [
+        },
         {
-          "aliasColors": {
-            "Committed": "blue",
-            "Init": "purple",
-            "Used": "yellow"
-          },
+          "aliasColors": {},
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
             },
             "overrides": []
           },
-          "fill": 5,
+          "fill": 1,
           "fillGradient": 0,
           "gridPos": {
-            "h": 11,
-            "w": 24,
-            "x": 0,
-            "y": 1
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 5
           },
           "hiddenSeries": false,
-          "id": 40,
+          "id": 2,
           "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -2728,23 +2248,13 @@
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "repeatIteration": 1608678657882,
-          "repeatPanelId": 36,
-          "repeatedByRow": true,
-          "scopedVars": {
-            "MemoryPool": {
-              "selected": true,
-              "text": "PS Survivor Space",
-              "value": "PS Survivor Space"
-            }
-          },
           "seriesOverrides": [],
           "spaceLength": 10,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "alias": "Max",
+              "alias": "CPU Load",
               "groupBy": [
                 {
                   "params": [
@@ -2759,7 +2269,7 @@
                   "type": "fill"
                 }
               ],
-              "measurement": "jboss.jvm_memory_pool",
+              "measurement": "jboss.jvm_operating_system",
               "orderByTime": "ASC",
               "policy": "default",
               "refId": "A",
@@ -2768,7 +2278,7 @@
                 [
                   {
                     "params": [
-                      "Usage.max"
+                      "ProcessCpuLoad"
                     ],
                     "type": "field"
                   },
@@ -2783,159 +2293,6 @@
                   "key": "host",
                   "operator": "=~",
                   "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Committed",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.committed"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Used",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "C",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.used"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
-                }
-              ]
-            },
-            {
-              "alias": "Init",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "jboss.jvm_memory_pool",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "D",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Usage.init"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$Host$/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "pool_name",
-                  "operator": "=~",
-                  "value": "/^$MemoryPool$/"
                 }
               ]
             }
@@ -2944,7 +2301,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Memory Pool Usage",
+          "title": "Process CPU Load",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -2960,16 +2317,16 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:4879",
-              "format": "bytes",
+              "$$hashKey": "object:1297",
+              "format": "percentunit",
               "label": null,
               "logBase": 1,
-              "max": null,
+              "max": "1",
               "min": "0",
               "show": true
             },
             {
-              "$$hashKey": "object:4880",
+              "$$hashKey": "object:1298",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -2984,16 +2341,7 @@
           }
         }
       ],
-      "repeatIteration": 1608678657882,
-      "repeatPanelId": 34,
-      "scopedVars": {
-        "MemoryPool": {
-          "selected": true,
-          "text": "PS Survivor Space",
-          "value": "PS Survivor Space"
-        }
-      },
-      "title": "Memory Pool ($MemoryPool)",
+      "title": "CPU Load",
       "type": "row"
     }
   ],
@@ -3047,9 +2395,9 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "label": null,
+        "label": "Datasource",
         "multi": true,
-        "name": "Datasource",
+        "name": "JBossDatasource",
         "options": [],
         "query": "SHOW TAG VALUES FROM \"jboss.datasource.pool\" WITH KEY = \"data-source\" WHERE \"host\" =~ /^$Host$/",
         "refresh": 1,
@@ -3065,9 +2413,14 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "PS Scavenge",
-          "value": "PS Scavenge"
+          "selected": true,
+          "tags": [],
+          "text": [
+            "PS Scavenge"
+          ],
+          "value": [
+            "PS Scavenge"
+          ]
         },
         "datasource": "InfluxDB",
         "definition": "",
@@ -3094,10 +2447,10 @@
           "selected": true,
           "tags": [],
           "text": [
-            "Code Cache"
+            "PS Eden Space"
           ],
           "value": [
-            "Code Cache"
+            "PS Eden Space"
           ]
         },
         "datasource": "InfluxDB",
@@ -3134,12 +2487,12 @@
             "value": "PS Eden Space"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "PS Old Gen",
             "value": "PS Old Gen"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "PS Survivor Space",
             "value": "PS Survivor Space"
           }
@@ -3154,6 +2507,24 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "InfluxDB",
+          "value": "InfluxDB"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Datasource",
+        "options": [],
+        "query": "influxdb",
+        "refresh": 1,
+        "regex": "InfluxDB",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },

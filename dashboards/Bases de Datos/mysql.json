@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1608672826501,
+  "iteration": 1609817298116,
   "links": [
     {
       "icon": "doc",
@@ -56,7 +56,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -191,7 +191,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -424,7 +424,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -612,7 +612,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -749,7 +749,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -902,7 +902,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -915,7 +915,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 9
+            "y": 2
           },
           "hiddenSeries": false,
           "id": 8,
@@ -1165,7 +1165,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1178,7 +1178,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 9
+            "y": 2
           },
           "hiddenSeries": false,
           "id": 18,
@@ -1406,7 +1406,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1591,7 +1591,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": null,
+          "datasource": "$Datasource",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1758,6 +1758,24 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "InfluxDB",
+          "value": "InfluxDB"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Datasource",
+        "options": [],
+        "query": "influxdb",
+        "refresh": 1,
+        "regex": "InfluxDB",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },

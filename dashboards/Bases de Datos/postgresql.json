@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1608673888431,
+  "iteration": 1609817381638,
   "links": [
     {
       "icon": "doc",
@@ -67,7 +67,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -117,7 +117,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Filas Fetched",
+          "alias": "Rows Fetched",
           "groupBy": [
             {
               "params": [
@@ -172,7 +172,7 @@
           ]
         },
         {
-          "alias": "Filas Retornadas",
+          "alias": "Rows Returned",
           "groupBy": [
             {
               "params": [
@@ -231,7 +231,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Filas Lectura",
+      "title": "Reads - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -276,7 +276,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -328,7 +328,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Filas Insertadas",
+          "alias": "Rows Inserted",
           "groupBy": [
             {
               "params": [
@@ -381,7 +381,7 @@
           ]
         },
         {
-          "alias": "Filas Eliminadas",
+          "alias": "Rows Deleted",
           "groupBy": [
             {
               "params": [
@@ -436,7 +436,7 @@
           ]
         },
         {
-          "alias": "Filas Actualizadas",
+          "alias": "Rows Updated",
           "groupBy": [
             {
               "params": [
@@ -493,7 +493,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Filas Escritura",
+      "title": "Writes - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -538,7 +538,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -698,7 +698,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Transacciones",
+      "title": "Transacciones - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -743,7 +743,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -863,7 +863,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Conexiones",
+      "title": "Conexiones - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -910,7 +910,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1013,7 +1013,7 @@
           ]
         },
         {
-          "alias": "Fallo",
+          "alias": "Miss",
           "groupBy": [
             {
               "params": [
@@ -1070,7 +1070,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Cache",
+      "title": "Cache - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1114,7 +1114,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1164,7 +1164,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Bytes Temporales",
+          "alias": "Temp Bytes",
           "groupBy": [
             {
               "params": [
@@ -1219,7 +1219,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Bytes de Archivos Temporales",
+      "title": "Bytes de Archivos Temporales - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1265,7 +1265,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1374,7 +1374,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Deadlocks",
+      "title": "Deadlocks - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1421,7 +1421,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "$Datasource",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1524,7 +1524,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Conflictos",
+      "title": "Conflictos - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1601,7 +1601,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "cinema",
           "value": "cinema"
         },
@@ -1623,6 +1623,24 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "InfluxDB",
+          "value": "InfluxDB"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "Datasource",
+        "options": [],
+        "query": "influxdb",
+        "refresh": 1,
+        "regex": "InfluxDB",
+        "skipUrlSync": false,
+        "type": "datasource"
       }
     ]
   },
