@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1609816986898,
+  "iteration": 1610248850932,
   "links": [
     {
       "icon": "doc",
@@ -564,8 +564,8 @@
       "scopedVars": {
         "Container": {
           "selected": false,
-          "text": "tutorial-environment_promtail_1",
-          "value": "tutorial-environment_promtail_1"
+          "text": "tutorial-environment_prometheus_1",
+          "value": "tutorial-environment_prometheus_1"
         }
       },
       "title": "Container ($Container)",
@@ -591,7 +591,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 4,
         "x": 0,
         "y": 14
@@ -615,8 +615,8 @@
       "scopedVars": {
         "Container": {
           "selected": false,
-          "text": "tutorial-environment_promtail_1",
-          "value": "tutorial-environment_promtail_1"
+          "text": "tutorial-environment_prometheus_1",
+          "value": "tutorial-environment_prometheus_1"
         }
       },
       "targets": [
@@ -695,7 +695,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 20,
         "x": 4,
         "y": 14
@@ -726,8 +726,8 @@
       "scopedVars": {
         "Container": {
           "selected": false,
-          "text": "tutorial-environment_promtail_1",
-          "value": "tutorial-environment_promtail_1"
+          "text": "tutorial-environment_prometheus_1",
+          "value": "tutorial-environment_prometheus_1"
         }
       },
       "seriesOverrides": [],
@@ -851,10 +851,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
-        "y": 22
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 14,
@@ -882,8 +882,8 @@
       "scopedVars": {
         "Container": {
           "selected": false,
-          "text": "tutorial-environment_promtail_1",
-          "value": "tutorial-environment_promtail_1"
+          "text": "tutorial-environment_prometheus_1",
+          "value": "tutorial-environment_prometheus_1"
         }
       },
       "seriesOverrides": [],
@@ -1008,10 +1008,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 23
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1040,8 +1040,8 @@
       "scopedVars": {
         "Container": {
           "selected": false,
-          "text": "tutorial-environment_promtail_1",
-          "value": "tutorial-environment_promtail_1"
+          "text": "tutorial-environment_prometheus_1",
+          "value": "tutorial-environment_prometheus_1"
         }
       },
       "seriesOverrides": [],

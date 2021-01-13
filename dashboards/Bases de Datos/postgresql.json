@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1609817381638,
+  "iteration": 1610409898458,
   "links": [
     {
       "icon": "doc",
@@ -77,7 +77,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 0,
         "y": 1
@@ -85,13 +85,14 @@
       "hiddenSeries": false,
       "id": 10,
       "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -231,7 +232,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Reads - $DB",
+      "title": "Reads (rows) - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -286,7 +287,7 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 12,
         "x": 12,
         "y": 1
@@ -294,15 +295,15 @@
       "hiddenSeries": false,
       "id": 2,
       "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
         "rightSide": false,
         "show": true,
         "total": false,
-        "values": false
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -493,7 +494,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Writes - $DB",
+      "title": "Writes (rows) - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -551,7 +552,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 6,
@@ -698,7 +699,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Transacciones - $DB",
+      "title": "Transactions - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -773,7 +774,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 9
+        "y": 10
       },
       "hiddenSeries": false,
       "id": 8,
@@ -810,7 +811,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Conexiones",
+          "alias": "Connections",
           "groupBy": [
             {
               "params": [
@@ -863,7 +864,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Conexiones - $DB",
+      "title": "Connections - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -905,7 +906,8 @@
     },
     {
       "aliasColors": {
-        "Fallo": "red"
+        "Fallo": "red",
+        "Miss": "red"
       },
       "bars": false,
       "dashLength": 10,
@@ -923,7 +925,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 12,
@@ -1127,7 +1129,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 18
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1219,7 +1221,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Bytes de Archivos Temporales - $DB",
+      "title": "Temporary File (bytes) - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1278,7 +1280,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 25
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1434,7 +1436,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 25
+        "y": 26
       },
       "hiddenSeries": false,
       "id": 20,
@@ -1524,7 +1526,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Conflictos - $DB",
+      "title": "Conflicts - $DB",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1609,7 +1611,7 @@
         "definition": "",
         "hide": 0,
         "includeAll": true,
-        "label": "Base de Datos",
+        "label": "",
         "multi": true,
         "name": "DB",
         "options": [],
