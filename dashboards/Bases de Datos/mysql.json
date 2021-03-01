@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 2,
-  "iteration": 1610640504936,
+  "iteration": 1610934135076,
   "links": [
     {
       "icon": "doc",
@@ -976,13 +976,17 @@
             [
               {
                 "params": [
-                  "max_used_connections"
+                  "connections"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
@@ -1026,6 +1030,10 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
@@ -1069,6 +1077,10 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
@@ -1112,6 +1124,10 @@
               {
                 "params": [],
                 "type": "mean"
+              },
+              {
+                "params": [],
+                "type": "non_negative_difference"
               }
             ]
           ],
